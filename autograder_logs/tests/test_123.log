@@ -1,0 +1,78 @@
+{
+    "testcase": {
+        "section": "E.4",
+        "description": "Tests that 'fg' brings a background job to the foreground and waits for it.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "cmd": "sleep 1 &",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [
+                    {
+                        "text": "\\\\[1\\\\] \\\\d+",
+                        "is_re": true,
+                        "negative_match": false
+                    }
+                ],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "cmd": "fg 1",
+                "sequential_outputs": [
+                    {
+                        "text": "sleep 1",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 3.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-19T22:57:02.099596+05:30",
+            "type": "output",
+            "details": "<osnuser@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:57:02.099967+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='sleep 1 &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\[1\\\\\\\\] \\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:57:02.151394+05:30",
+            "type": "output",
+            "details": "[1] 28"
+        },
+        {
+            "time": "2025-11-19T22:57:02.151705+05:30",
+            "type": "output",
+            "details": "<osnuser@osntesting:~> "
+        },
+        {
+            "time": "2025-11-19T22:57:02.151817+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, cmd='fg 1', sequential_outputs=[Line(text='sleep 1', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-19T22:57:02.203513+05:30",
+            "type": "output",
+            "details": "sleep 1 "
+        },
+        {
+            "time": "2025-11-19T22:57:03.153593+05:30",
+            "type": "output",
+            "details": "<osnuser@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n<osnuser@osntesting:~> sleep 1 &\n[1] 28\r\n<osnuser@osntesting:~> fg 1\nsleep 1 \r\n<osnuser@osntesting:~> ",
+    "py_log": "2025-11-19 22:57:00,723 - tester.6f6cbe5e-fd39-4503-a95f-101c192e33b2 - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x78f014503590>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_a9fafe1bbddb4bdc83eb5176dfb8379b', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp2a9bze_x:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 2820953\n    child_fd: 102\n    closed: False\n    timeout: 3.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e28940>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:57:02,099 - tester.6f6cbe5e-fd39-4503-a95f-101c192e33b2 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:57:02.099596+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<osnuser@osntesting:~> \"\n    }\n2025-11-19 22:57:02,100 - tester.6f6cbe5e-fd39-4503-a95f-101c192e33b2 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:57:02.099967+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='sleep 1 &', sequential_outputs=[], nonsequential_outputs=[Line(text='\\\\\\\\\\\\\\\\[1\\\\\\\\\\\\\\\\] \\\\\\\\\\\\\\\\d+', is_re=True, negative_match=False)], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-19 22:57:02,151 - tester.6f6cbe5e-fd39-4503-a95f-101c192e33b2 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:57:02.151394+05:30\",\n        \"type\": \"output\",\n        \"details\": \"[1] 28\"\n    }\n2025-11-19 22:57:02,151 - tester.6f6cbe5e-fd39-4503-a95f-101c192e33b2 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:57:02.151705+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<osnuser@osntesting:~> \"\n    }\n2025-11-19 22:57:02,151 - tester.6f6cbe5e-fd39-4503-a95f-101c192e33b2 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:57:02.151817+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, cmd='fg 1', sequential_outputs=[Line(text='sleep 1', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-19 22:57:02,203 - tester.6f6cbe5e-fd39-4503-a95f-101c192e33b2 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:57:02.203513+05:30\",\n        \"type\": \"output\",\n        \"details\": \"sleep 1 \"\n    }\n2025-11-19 22:57:03,153 - tester.6f6cbe5e-fd39-4503-a95f-101c192e33b2 - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-19T22:57:03.153593+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<osnuser@osntesting:~> \"\n    }\n2025-11-19 22:57:03,807 - tester.6f6cbe5e-fd39-4503-a95f-101c192e33b2 - WARNING - Failed to remove container tester_a9fafe1bbddb4bdc83eb5176dfb8379b: 409 Client Error for http+docker://localhost/v1.51/containers/5dcac90ec96928c656dc78083efb166f07dd94ed0ade36c8630449cc6df6aebe?v=False&link=False&force=True: Conflict (\"removal of container 5dcac90ec96928c656dc78083efb166f07dd94ed0ade36c8630449cc6df6aebe is already in progress\")\n2025-11-19 22:57:03,807 - tester.6f6cbe5e-fd39-4503-a95f-101c192e33b2 - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x78f014503590>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_a9fafe1bbddb4bdc83eb5176dfb8379b', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp2a9bze_x:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: '<osnuser@osntesting:~> '\n    match: <re.Match object; span=(0, 23), match='<osnuser@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 2820953\n    child_fd: -1\n    closed: True\n    timeout: 3.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x78f014e28940>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-19 22:57:03,808 - tester.6f6cbe5e-fd39-4503-a95f-101c192e33b2 - INFO - Cleaned up temp_dir: /tmp/tmp2a9bze_x\n"
+}
