@@ -1,0 +1,176 @@
+{
+    "testcase": {
+        "section": "B.3",
+        "description": "Tests if command history persists across shell restarts and if 'log purge' correctly clears it.",
+        "cmds": [
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "hop command1",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "hop command2",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": true,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "reason": "Restarting shell to check for persistence"
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "log",
+                "sequential_outputs": [
+                    {
+                        "text": "hop command1",
+                        "is_re": false,
+                        "negative_match": false
+                    },
+                    {
+                        "text": "hop command2",
+                        "is_re": false,
+                        "negative_match": false
+                    }
+                ],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "log purge",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "reason": "Restarting shell to check for persistence"
+            },
+            {
+                "expect_exit": false,
+                "skip_prompt_check": false,
+                "cmd": "log",
+                "sequential_outputs": [],
+                "nonsequential_outputs": [],
+                "ignore_output": false,
+                "cwd_after": null
+            }
+        ],
+        "timeout": 2.0,
+        "strict_prompt": false,
+        "requires_test_folder": false
+    },
+    "events": [
+        {
+            "time": "2025-11-30T05:30:44.797579+05:30",
+            "type": "output",
+            "details": "<osnuser@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T05:30:44.798096+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='hop command1', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T05:30:44.850395+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-30T05:30:44.850770+05:30",
+            "type": "output",
+            "details": "<osnuser@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T05:30:44.850998+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='hop command2', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T05:30:44.902811+05:30",
+            "type": "output",
+            "details": "No such directory!"
+        },
+        {
+            "time": "2025-11-30T05:30:44.903298+05:30",
+            "type": "output",
+            "details": "<osnuser@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T05:30:44.903635+05:30",
+            "type": "input",
+            "details": "StartShell(expect_exit=False, skip_prompt_check=False, reason='Restarting shell to check for persistence')"
+        },
+        {
+            "time": "2025-11-30T05:30:46.664067+05:30",
+            "type": "output",
+            "details": "<osnuser@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T05:30:46.664780+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='log', sequential_outputs=[Line(text='hop command1', is_re=False, negative_match=False), Line(text='hop command2', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T05:30:46.716585+05:30",
+            "type": "output",
+            "details": "hop command1"
+        },
+        {
+            "time": "2025-11-30T05:30:46.717095+05:30",
+            "type": "output",
+            "details": "hop command2"
+        },
+        {
+            "time": "2025-11-30T05:30:46.717506+05:30",
+            "type": "output",
+            "details": "<osnuser@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T05:30:46.717825+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='log purge', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T05:30:46.770191+05:30",
+            "type": "output",
+            "details": "<osnuser@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T05:30:46.770731+05:30",
+            "type": "input",
+            "details": "StartShell(expect_exit=False, skip_prompt_check=False, reason='Restarting shell to check for persistence')"
+        },
+        {
+            "time": "2025-11-30T05:30:47.533469+05:30",
+            "type": "output",
+            "details": "<osnuser@osntesting:~> "
+        },
+        {
+            "time": "2025-11-30T05:30:47.533802+05:30",
+            "type": "input",
+            "details": "GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='log', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)"
+        },
+        {
+            "time": "2025-11-30T05:30:47.585358+05:30",
+            "type": "output",
+            "details": "<osnuser@osntesting:~> "
+        }
+    ],
+    "raw_log": "##### START RAW OUTPUT #####\n<osnuser@osntesting:~> hop command1\nNo such directory!\r\n<osnuser@osntesting:~> hop command2\nNo such directory!\r\n<osnuser@osntesting:~> ##### RESTARTED SHELL #####\n<osnuser@osntesting:~> log\nhop command1\r\nhop command2\r\n<osnuser@osntesting:~> log purge\n<osnuser@osntesting:~> ##### RESTARTED SHELL #####\n<osnuser@osntesting:~> log\n<osnuser@osntesting:~> ",
+    "py_log": "2025-11-30 05:30:44,178 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x7984fa651160>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_ef1a58b7062e42b49410429ab2ff2ba5', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp222ybrcr:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 2990788\n    child_fd: 208\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x79851bf21780>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 05:30:44,797 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:44.797579+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<osnuser@osntesting:~> \"\n    }\n2025-11-30 05:30:44,798 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:44.798096+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='hop command1', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-30 05:30:44,850 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:44.850395+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-30 05:30:44,850 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:44.850770+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<osnuser@osntesting:~> \"\n    }\n2025-11-30 05:30:44,851 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:44.850998+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='hop command2', sequential_outputs=[], nonsequential_outputs=[], ignore_output=True, cwd_after=None)\"\n    }\n2025-11-30 05:30:44,902 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:44.902811+05:30\",\n        \"type\": \"output\",\n        \"details\": \"No such directory!\"\n    }\n2025-11-30 05:30:44,903 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:44.903298+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<osnuser@osntesting:~> \"\n    }\n2025-11-30 05:30:44,903 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:44.903635+05:30\",\n        \"type\": \"input\",\n        \"details\": \"StartShell(expect_exit=False, skip_prompt_check=False, reason='Restarting shell to check for persistence')\"\n    }\n2025-11-30 05:30:44,903 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - INFO - Restarting shell\n2025-11-30 05:30:45,552 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Force removed container tester_ef1a58b7062e42b49410429ab2ff2ba5\n2025-11-30 05:30:45,571 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x7984fac80500>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_4658485d6ba547d5af1cb1a718ba0a40', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp222ybrcr:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 2991694\n    child_fd: 211\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x798518641d80>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 05:30:46,664 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:46.664067+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<osnuser@osntesting:~> \"\n    }\n2025-11-30 05:30:46,664 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:46.664780+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='log', sequential_outputs=[Line(text='hop command1', is_re=False, negative_match=False), Line(text='hop command2', is_re=False, negative_match=False)], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 05:30:46,716 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:46.716585+05:30\",\n        \"type\": \"output\",\n        \"details\": \"hop command1\"\n    }\n2025-11-30 05:30:46,717 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:46.717095+05:30\",\n        \"type\": \"output\",\n        \"details\": \"hop command2\"\n    }\n2025-11-30 05:30:46,717 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:46.717506+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<osnuser@osntesting:~> \"\n    }\n2025-11-30 05:30:46,717 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:46.717825+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='log purge', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 05:30:46,770 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:46.770191+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<osnuser@osntesting:~> \"\n    }\n2025-11-30 05:30:46,770 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:46.770731+05:30\",\n        \"type\": \"input\",\n        \"details\": \"StartShell(expect_exit=False, skip_prompt_check=False, reason='Restarting shell to check for persistence')\"\n    }\n2025-11-30 05:30:46,770 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - INFO - Restarting shell\n2025-11-30 05:30:47,001 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Force removed container tester_4658485d6ba547d5af1cb1a718ba0a40\n2025-11-30 05:30:47,014 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - INFO - Spawned child:\n    <pexpect.pty_spawn.spawn object at 0x7984fa709070>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_b273462b21544bf2b4a4a8eaf034e68d', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp222ybrcr:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: None\n    match: None\n    match_index: None\n    exitstatus: None\n    flag_eof: False\n    pid: 2992696\n    child_fd: 208\n    closed: False\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x79851bf20dc0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 05:30:47,533 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:47.533469+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<osnuser@osntesting:~> \"\n    }\n2025-11-30 05:30:47,533 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:47.533802+05:30\",\n        \"type\": \"input\",\n        \"details\": \"GenericCmd(expect_exit=False, skip_prompt_check=False, cmd='log', sequential_outputs=[], nonsequential_outputs=[], ignore_output=False, cwd_after=None)\"\n    }\n2025-11-30 05:30:47,585 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - DEBUG - Received event:\n    {\n        \"time\": \"2025-11-30T05:30:47.585358+05:30\",\n        \"type\": \"output\",\n        \"details\": \"<osnuser@osntesting:~> \"\n    }\n2025-11-30 05:30:48,094 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - INFO - Finished running testcase. Child info at exit:\n    <pexpect.pty_spawn.spawn object at 0x7984fa709070>\n    command: /usr/bin/docker\n    args: [b'/usr/bin/docker', b'run', b'--name', b'tester_b273462b21544bf2b4a4a8eaf034e68d', b'-i', b'-t', b'--rm', b'--init', b'-h', b'osntesting', b'-v', b'/tmp/tmp222ybrcr:/app', b'-w', b'/app', b'shell_tester:latest', b'/app/shell.out']\n    buffer (last 100 chars): ''\n    before (last 100 chars): ''\n    after: '<osnuser@osntesting:~> '\n    match: <re.Match object; span=(0, 23), match='<osnuser@osntesting:~> '>\n    match_index: 0\n    exitstatus: None\n    flag_eof: False\n    pid: 2992696\n    child_fd: -1\n    closed: True\n    timeout: 2.0\n    delimiter: <class 'pexpect.exceptions.EOF'>\n    logfile: <tester.FlexibleIO object at 0x79851bf20dc0>\n    logfile_read: None\n    logfile_send: None\n    maxread: 2000\n    ignorecase: False\n    searchwindowsize: None\n    delaybeforesend: 0.05\n    delayafterclose: 0.1\n    delayafterterminate: 0.1\n2025-11-30 05:30:48,095 - tester.d7a93f58-ec57-4635-b5dd-ed8448b2439f - INFO - Cleaned up temp_dir: /tmp/tmp222ybrcr\n"
+}
